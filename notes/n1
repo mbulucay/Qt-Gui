@@ -1,0 +1,19 @@
+
+
+.pro dosyasi olusturulan proje icin sistem gereksinimleri ve proje dosyalarinin islenmesi icin gerekli ayarlarin bilgisini tutan dosya.
+
+QT          qt de kullanilan seyler
+
+TARGET      uygulama adi
+TEMPLATE    uygulama tipi
+
+DEFINES     
+
+SOURCES     *.cpp
+
+HEADERS     *.h
+
+FORMS       *.ui visual aspect of our user interface
+            proje icin arayuzun xml haline getirilmis hali programin interface i buradaki xml 
+
+
