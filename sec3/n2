@@ -1,0 +1,24 @@
+
+signal slot
+
+qt icerisnde bir etkilesime gordiginde uygulama bir sinyal gonderilip etkilesime girdigin objenin
+ilgili fonksiyonun cagirilmasi saglaniyor bu sayede etkilsim ile ilgili kodlarin calismasi saglaniyor
+
+bu fonksiyonlar moc_*.cpp dosyasi icerisinde gorebilirsin
+
+bu sinyaller ile ugrasirken 3 farkli konsept var bunlarla etkilesimini ayarlayabilirsin
+
+1-) String Notation
+    connet(ui->pushButton, SIGNAL(clicked()), this, SLOT(changeText()));
+
+2-) Functor Notation
+    connet(ui->pushButton, &QOushButton::clicked, this, &MyWidget::changeText);
+
+3-) Functor lamda Notation (passing function as paramter)
+    connet(ui->pushButton, &QOushButton::clicked, [=] {
+        ui->label->setText("something");
+    });
+
+
+bu sayede qt de componentler icin berlirlenmis fonksiyonlarin disina cikip daha guzel kod yazabiliyoruz 
+kendimizi o fonksiyonlarla sinirlamak zorunda kalmiyoruz 

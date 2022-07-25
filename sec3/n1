@@ -1,0 +1,11 @@
+
+lamdas
+
+c++ function constructerlari gibi dusunebilirsin olduklari yerde cagiriliyorlar
+unnamed funciton olarak geciyorlar <in place> bu sayede standart library algolari daha kullanisli olabiliyor
+
+local yerdeki variblelar kullanilabilir bu sayede fonksiyona paramtre olarak gondermen gerekmez
+
+qt de signal slot icerisinde kullaniliyorlar
+
+tanimladigin fonksiyon icersinde istedigin gibi local ler ile define edilen fonksiyonu atatdigin varible i cagirarak kullanabilirsin
