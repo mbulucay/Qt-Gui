@@ -1,0 +1,28 @@
+
+from click import progressbar
+
+Widget ekranda gorunen her bir ui compenenti
+
+QWidget (Outside):
+    Base class of all user interface objects.
+    It is the root of the widget hierarchy.
+    It is also the top-level widget for dialogs.
+
+class HerhangiBirWidget: public QWodget{
+
+
+    private:
+        Widget *widget; -> bunu kullanarak compenenti yonetiyoruz
+
+        ui->setupUi(this) -> bunun ile componentin forms icerisnde yaptigin .ui dosyasini bu degisken icerisine ekleriz
+        ve .ui dosyasina ekleyecegin mesela label buton gibi seyleri kontrol ederiz 
+        ui->label->setText("Hello World");
+        ui->button->setText("Click Me");
+        ui->progressbar->setValue(0);
+};
+
+Bu sayede QWidget icerisinde tanimlanan herhangi bir seyi inherit ederek kullanabiliriz.
+
+
+QLevel(Inside):
+    Iceride tanimladigin componentlerin bir araya gelecegi yer
