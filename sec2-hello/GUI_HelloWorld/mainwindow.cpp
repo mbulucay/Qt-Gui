@@ -45,5 +45,7 @@ void MainWindow::on_RestartButton_clicked()
 {
     randomNumber = rand() % 100 + 1;
     ui->Message->setText(QString("Random number Regenerated"));
+    ui->Counter->setText(QString::number(0));
+    ui->GuessButton->setDisabled(false);
 }
 

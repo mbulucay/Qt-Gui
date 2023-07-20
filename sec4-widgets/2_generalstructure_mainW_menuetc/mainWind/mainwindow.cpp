@@ -10,18 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
 
-//    QPushButton * pb = new QPushButton("BTTN", this);
-//    setCentralWidget(pb);
+    QPushButton * pb = new QPushButton("BTTN", this);
+    setCentralWidget(pb);
 
     QMenu* fileMenu = menuBar()->addMenu("File");
-    QMenu* editMenu = menuBar()->addMenu("Edit");
-    QMenu* settingMenu = menuBar()->addMenu("Setting");
-    menuBar()->addMenu("View");
-    menuBar()->addMenu("Help");
-    menuBar()->addMenu("About");
-
-    statusBar()->showMessage("Uploading File or Someting else.. .... . .", 2000);
-    //statusBar()->clearMessage();
 
     QAction* action1 = new QAction("Quit");
     fileMenu->addAction(action1);
@@ -30,12 +22,26 @@ MainWindow::MainWindow(QWidget *parent)
         QApplication::quit();
     });
 
+
+    QMenu* editMenu = menuBar()->addMenu("Edit");
+
     editMenu->addAction("edit 1");
     editMenu->addAction("edit 2");
     editMenu->addAction("edit 3");
 
+
+    QMenu* settingMenu = menuBar()->addMenu("Setting");
+
     QAction* action2 = new QAction("deneme");
     settingMenu->addAction(action2);
+
+
+    menuBar()->addMenu("View");
+    menuBar()->addMenu("Help");
+    menuBar()->addMenu("About");
+
+    statusBar()->showMessage("Uploading File or Someting else.. .... . .", 2000); // delay 2000 ms
+    //statusBar()->clearMessage();
 
     connect(action2, SIGNAL(triggered()), this, SLOT(printSlot()));
 

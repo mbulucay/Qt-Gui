@@ -11,9 +11,14 @@ MainWindow::MainWindow(QWidget *parent)
 
 // For Slider Bar and Progress Bar
 
-    connect(ui->horizontalSlider, SIGNAL(actionTriggered(int)), ui->progressBar, SLOT(update_bar()));
+//    connect(capture the signal element, signal type action,
+//    etkilenecek nesne, etkilenecek nesne uzerinde method)
 
-//    connect(ui->horizontalSlider, &QSlider::actionTriggered, ui->progressBar, &MainWindow::update_bar);
+//    connect(ui->horizontalSlider, SIGNAL(actionTriggered(int)),
+//    this, SLOT(update_bar()));
+
+//    connect(ui->horizontalSlider, &QSlider::actionTriggered,
+//    this, &MainWindow::update_bar);
 
 //    connect(ui->horizontalSlider, &QSlider::actionTriggered, [=](){
 //        int pos = ui->horizontalSlider->sliderPosition();
@@ -21,26 +26,46 @@ MainWindow::MainWindow(QWidget *parent)
 //    });
 
 
+//       connect(ui->horizontalSlider, SIGNAL(valueChanged(int)),
+//               ui->progressBar, SLOT(setValue(int)));
+
+//        connect(ui->horizontalSlider, &QSlider::valueChanged,
+//                ui->progressBar, &QProgressBar::setValue);
+
+        connect(ui->horizontalSlider, &QSlider::valueChanged,
+            [=](int a){
+                ui->progressBar->setValue(a);
+//                ui->progressBar->setValue(ui->horizontalSlider->sliderPosition());
+            });
+
 
 // For button and Label
 
     // String Notation
-//    connect(ui->button, SIGNAL(clicked()), this, SLOT(change_text_with_own_slot()));
+//    connect(ui->button, SIGNAL(clicked()),
+//        this, SLOT(change_text_with_own_slot()));
 
     // Functor Notation
-//    connect(ui->button, &QPushButton::clicked, this, &MainWindow::change_text_with_own_slot);
+//    connect(ui->button, &QPushButton::clicked,
+//        this, &MainWindow::change_text_with_own_slot);
 
     int a = 0;
     // Functor lambda
     connect(ui->button, &QPushButton::clicked, [&](){
         ui->text->setText("IN LAMBDA");
         qDebug() << a;
-        a++;
     });
-    connect(ui->button, &QPushButton::clicked, [=](){
-        qDebug() << a;
-        qDebug() << "second lambda";
-    });
+//    connect(ui->button, &QPushButton::clicked, [=](){
+//        qDebug() << a;
+//        qDebug() << "second lambda";
+//    });
+
+
+
+
+
+
+
 }
 
 MainWindow::~MainWindow()

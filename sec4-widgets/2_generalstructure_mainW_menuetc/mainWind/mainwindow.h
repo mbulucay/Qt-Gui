@@ -11,7 +11,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QSize sizeHint() const;
+private:
+    QSize sizeHint() const override;
 
 public slots:
 
